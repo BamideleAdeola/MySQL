@@ -1,0 +1,30 @@
+#QUESTION : 
+ /*  What are the top 2 States where our users come from? */
+
+As a data analyst, you will definitely come across #SQL interview questions. 
+Do note that your query is dependent on your database schema. 
+At times, you are giving just one big table and most times it is in a snowflake schema. 
+Also, the interviewer has mentioned that MySQL should be used for the above challenge. 
+There were 3 tables so your knowledge of joins would come to play here. 
+I have attached the Database Schema I got myself from MySQL Workbench. I will write on how you can get your Database schema (EER Diagram) in another post.
+SQL server would have just giving me the opportunity to use TOP 2 function, but that is not the case in MySQL. 
+Try to be familiar with the syntax of the different variant.
+
+SELECT 
+	u.state, COUNT(l.user_id) AS freq
+FROM logs l
+  JOIN users u 
+  ON l.user_id = u.id
+GROUP BY u.state
+ORDER BY freq DESC
+LIMIT 2;
+
+Feel free to drop other ways of solving same challenge. How would you have solve this?
+
+Trust you find this useful. 
+#Cavaet: #The #data is #fictitious and not a real dataset.
+#Follow, #share, #comment and #like to help someone somewhere. We are in this journey together.
+#LinkedIn: https://lnkd.in/dJzSUWQF
+#Twitter: https://lnkd.in/dfPx-c3a
+
+#microsoftazure #microsoftpowerbi #microsoft #googleanalytics #dataanalytics #datacamp #dataarchitect

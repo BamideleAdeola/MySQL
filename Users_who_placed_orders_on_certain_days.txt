@@ -1,0 +1,44 @@
+#QUESTION : 
+ /* write SQL query to find the users who placed orders on 29th August 2021. 
+Return user_id, ord_id, ord_date, order status, user_state */
+
+#SQL database most often are always combination of different tables and a data specialist must understand the joining point. 
+More importantly here is that you have to better understand how DATE works. 
+In the above question, generally speaking filtering a date to 29th of August, 2021 would  have been a direct approach. 
+However, the datatype of order date is a #DATETIME. Meaning, you need to be specific about the date and time in order to get accurate output.
+A better way to resolve this issue is to wrap the column by DATE() which will extract just the date then pass the required date as a filter.
+The instruction was cleared to use MySQL Workbench in solving this.
+Also notice that instead of joins, we can also use the WHERE clause to join the connecting points of the two tables.
+However, because of index issue, the query2 can replace query1 when it comes to wrapping created date in a DATE function.
+
+Query1
+SELECT 
+  u.id AS user_id,
+  o.id AS order_id, 
+  o.date_created AS order_date, 
+  o.status AS order_status, 
+  u.state AS user_state
+FROM orders o, users u
+WHERE o.user_id = u.id
+AND DATE(o.date_created) ='2021-06-29';
+
+Query2
+
+SELECT 
+  u.id AS user_id,
+  o.id AS order_id, 
+  o.date_created AS order_date, 
+  o.status AS order_status, 
+  u.state AS user_state
+FROM orders o, users u
+WHERE o.user_id = u.id
+AND o.date_created BETWEEN '2021-06-29 00:00:00' AND '2021-06-29 23:59:59';
+
+Definitely you can solve this with JOIN and other queries. How would you have solved this?
+Trust you find this useful. 
+#Cavaet: #The #data is #fictitious and not a real dataset.
+#Follow, #share, #comment and #like to help someone somewhere.
+#LinkedIn: https://lnkd.in/dJzSUWQF
+#Twitter: https://lnkd.in/dfPx-c3a
+
+#microsoftazure #microsoftpowerbi #microsoft #googleanalytics #dataanalytics #datacamp #dataarchitect

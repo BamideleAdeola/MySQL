@@ -1,0 +1,23 @@
+#QUESTION : 
+ /* Which of our users have not placed any orders? */
+
+The second question asked back then during one of my SQL interview questions was to determine which users have not placed any order. 
+Still having a schema with 3 tables and it must be on MySQL Workbench.
+I had to add a select statement in a WHERE CLAUSE connecting the two statement and tables with user id by NOT IN Clause. 
+
+SELECT 
+    u.id
+FROM users u
+WHERE u.id NOT IN (SELECT 
+            user_id
+        FROM
+            orders);
+
+Definitely you can solve this with JOIN and other queries. How would you have solved this?
+Trust you find this useful. 
+#Cavaet: #The #data is #fictitious and not a real dataset.
+#Follow, #share, #comment and #like to help someone somewhere. We are in this journey together.
+#LinkedIn: https://lnkd.in/dJzSUWQF
+#Twitter: https://lnkd.in/dfPx-c3a
+
+#microsoftazure #microsoftpowerbi #microsoft #googleanalytics #dataanalytics #datacamp #dataarchitect
