@@ -1,5 +1,3 @@
-SELECT * FROM simplehealth.orders;
-
 -- 2. Which of our users have not placed any orders?
 SELECT 
     u.id
