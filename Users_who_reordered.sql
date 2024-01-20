@@ -9,3 +9,4 @@ HAVING count(*) > 1;
 
 SELECT * 
 FROM logs;
+-- Reordered users
